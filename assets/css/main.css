@@ -1,0 +1,223 @@
+/************************************
+ * Overall
+ ************************************/
+*{
+    font-family: sans-serif;
+    color:#fff;
+}
+
+.divider{
+    border:1px solid #456;
+    width:100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+/* GRID ********************************/
+.col-24{
+    float:left;
+    margin-left:5px;
+    width:24%;
+}
+
+.col-72{
+    float:left;
+    margin-left: 5px;
+    width:72%;
+}
+
+/* NAV *********************************/
+nav li{
+    padding:10px;
+    background-color: #234;
+    border-bottom:1px solid #456;
+    cursor: pointer;
+    font-weight: lighter;
+    font-size: 13px;
+}
+
+nav li:hover{
+    background-color:#456;
+    padding:13px;
+}
+
+nav li:select{
+    background-color:#456;
+    padding:13px;
+}
+/* POSITIONING *************************/
+.pull-right{float:right;}
+.pull-left{float:left;}
+
+.text-center{text-align: center}
+
+.margin-10{margin:10px;}
+.margin-20{margin:20px;}
+
+.padding-10{padding:10px;}
+.padding-15{padding:15px;}
+.padding-20{padding:20px;}
+
+.padding-left-20{padding-left:20px;}
+.padding-left-15{padding-left:15px;}
+.padding-left-10{padding-left:10px;}
+
+/* FONT SIZES **************************/
+.text-11{font-size:11px}
+.text-12{font-size:12px}
+.text-20{font-size:20px}
+
+/* FONT WEIGHTS ************************/
+.text-lighter{font-weight: lighter;}
+.text-bold{font-weight: bold;}
+.text-bolder{font-weight: bolder;}
+
+/* FONT COLORS *************************/
+.text-black{color:#000;}
+.text-desaturated-blue{color:#345;}
+.text-very-dark-blue{color:#234;}
+
+/************************************
+ * Table
+ ************************************/
+
+.table tr{
+    vertical-align: middle;
+    font-size:12px;
+}
+
+.table th{
+    background-color:#234;
+    padding:10px;
+    border-radius: 5px;
+}
+
+.table td{
+    background-color:#ccc;
+    padding:10px;
+    border-radius: 5px;
+    color:#345;
+    text-align: right;
+}
+
+
+/************************************
+ * Top Header
+ ************************************/
+#top_header{
+    position: absolute;
+    background-color:#234;
+    width:100%;
+    height:15%;
+    left:0px;
+    top:0%;
+    border-bottom: solid 2px #567;
+}
+
+#top_logo{
+    float:left;
+    width:100px;
+    height:100px;
+    background-color: #fff;
+}
+
+
+#software_name{
+    float:right;
+    padding:10px;
+    padding-top:40px;
+    font-size:14px;
+}
+/************************************
+ * Container
+ ************************************/
+#container{
+    position: absolute;
+    background-color:#345;
+    width:100%;
+    height:80%;
+    left:0px;
+    top:15.3%;
+}
+
+#home_icons{
+    margin:0px auto;
+    width:70%;
+    height:120px;
+}
+
+#home_statistics{
+    margin: 0px auto;
+    width:70%;
+}
+
+
+/************************************
+ * Container Class
+ ************************************/
+
+.container{
+    position:relative;
+    padding:10px;
+}
+
+/************************************
+ * Well Class
+ ************************************/
+
+.well{
+    background-color:#ccc;
+    border:#456;
+    border-radius:20px;
+    cursor: pointer;
+}
+
+.well:hover{
+    /*box-shadow: 1px 1px 10px #fff;*/
+    -ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    transform: rotate(7deg);
+}
+
+.col-header{
+    background-color: #ccc;
+    border:#456;
+    width:100%;
+}
+/************************************
+ * Large Icon Class
+ ************************************/
+
+.large-icon{
+    width:90px;
+    height:90px;
+    padding:10px;
+}
+
+/************************************
+ * Form Class
+ ************************************/
+
+.input{
+    padding:10px;
+    border:1px solid #345;
+    color:#345;
+}
+
+/************************************
+ * Footer
+ ************************************/
+#footer{
+    position: absolute;
+    background-color:#000;
+    width:100%;
+    height:5%;
+    left:0px;
+    top:95%;
+}
