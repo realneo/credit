@@ -4,27 +4,17 @@
                <div id='home_icons'>
                     <div class='well large-icon pull-left margin-10'>
                         <i class="fa fa-users fa-4x padding-left-10 text-desaturated-blue"></i>
-                        <p class='text-center text-desaturated-blue text-lighter text-12'>Employees</p>
+                        <p class='text-center text-desaturated-blue text-lighter text-12'>Customers</p>
                     </div>
 
                     <div class='well large-icon pull-left margin-10'>
                         <i class="fa fa-money fa-4x padding-left-10 text-desaturated-blue"></i>
-                        <p class='text-center text-desaturated-blue text-lighter text-12'>Salaries</p>
+                        <p class='text-center text-desaturated-blue text-lighter text-12'>Loans</p>
                     </div>
 
                     <div class='well large-icon pull-left margin-10'>
                         <i class="fa fa-pie-chart fa-4x padding-left-15 text-desaturated-blue"></i>
-                        <p class='text-center text-desaturated-blue text-lighter text-12'>Salary Advance</p>
-                    </div>
-
-                    <div class='well large-icon pull-left margin-10'>
-                        <i class="fa fa-bullseye fa-4x padding-left-20 text-desaturated-blue"></i>
-                        <p class='text-center text-desaturated-blue text-lighter text-12'>Loans</p>
-                    </div>
-
-                   <div class='well large-icon pull-left margin-10'>
-                        <i class="fa fa-gift fa-4x padding-left-15 text-desaturated-blue"></i>
-                        <p class='text-center text-desaturated-blue text-lighter text-12'>Bonus</p>
+                        <p class='text-center text-desaturated-blue text-lighter text-12'>Notifications</p>
                     </div>
 
                     <div class='well large-icon pull-left margin-10'>
@@ -43,19 +33,19 @@
                     <div class='divider'></div>
                     <table class='table'>
                         <tr>
-                            <th>Total Employees</th>
+                            <th>Total Customers</th>
                             <td>430</td>
                         </tr>
                         <tr>
-                            <th>Total Salaries</th>
+                            <th>Total Loans Given</th>
                             <td>24,555,000</td>
                         </tr>
                         <tr>
-                            <th>Total Advance</th>
+                            <th>Total Paid Loans</th>
                             <td>12,400,000</td>
                         </tr>
                         <tr>
-                            <th>Total Loan</th>
+                            <th>Total Loan Pending</th>
                             <td>20,400,500</td>
                         </tr>
                     </table>
