@@ -6,7 +6,7 @@
     define(ROOT_DIR, $_SERVER['DOCUMENT_ROOT'] );
     
     // Set File Path for the Files
-    $file_path = ROOT_DIR . DIRECTORY_SEPARATOR . "yoteyote" . DIRECTORY_SEPARATOR;
+    $file_path = ROOT_DIR . DIRECTORY_SEPARATOR . "loans" . DIRECTORY_SEPARATOR;
     
     
     include_once($file_path."lib/config/config.php");
@@ -16,6 +16,6 @@
     
     // New Objects 
     $Session = new Session();
-    $Db = new Database();
+    $db = new Database();
 
 ?>

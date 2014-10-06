@@ -6,16 +6,19 @@
                 <div class='col-header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-users fa-1x padding-left-10 text-desaturated-blue"></i> Customers </p></div>
                 <nav>
                     <ul>
-                        <li><a href='#'>Add Customer</a></li>
+                        <li id='add_customer_btn'><a href='#'>Add Customer</a></li>
                         <li><a href='#'>View Customers</a></li>
                     </ul>
                </nav>
             </div><!-- container -->
         </div><!-- col-25 -->
         <div class='col-72' id='content'>
+            <div class='alert'><p>This is the Latest</p></div>
+            <div class='loading'><i class="fa fa-4x fa-refresh fa-spin"></i></div>
+            <div class='overlay'></div>
             <div class='container'>
-                <div class='loading'>
-                    <i class="fa fa-4x fa-refresh fa-spin"></i>
+                <div id='inner-content'>
+                    <!-- Loading Pages Here -->
                 </div>
             </div>
         </div><!-- col-72 -->

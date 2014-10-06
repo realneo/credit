@@ -47,7 +47,7 @@ nav li:hover{
     padding:13px;
 }
 
-nav li:select{
+.nav-hover{
     background-color:#456;
     padding:13px;
 }
@@ -171,6 +171,14 @@ nav li:select{
  * Well Class
  ************************************/
 
+#inner-content{
+    display:none;    
+}
+
+/************************************
+ * Well Class
+ ************************************/
+
 .well{
     background-color:#ccc;
     border:#456;
@@ -214,10 +222,34 @@ nav li:select{
  * Loading
  ************************************/
 .loading{
+    position:absolute;
     width:55px;
     height:64px;
-    margin: 20% auto; 
+    left:50%;
+    margin-top:15%;
+    z-index: 10;
     display:none;
+}
+
+/************************************
+ * Alert
+ ************************************/
+.alert{
+    position:absolute;
+    width:72%;
+    height:30px;
+    top:0px;
+    z-index:8;
+}
+
+.alert p{
+    font-size: 12px;
+    text-align: center;
+    color:#345;
+}
+
+.error-border{
+    border:3px dashed red;    
 }
 /************************************
  * Footer
