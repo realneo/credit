@@ -1,5 +1,20 @@
 $(function() {
-  
+    // Functions
+    
+    // Alert Function
+    function alert_msg(alert_type, alert_msg){
+        $('.alert p').html(alert_msg);
+        if(alert_type == 'warning'){
+            $('.alert').addClass('warning-bg');    
+        }else if(alert_type == 'success'){
+            $('.alert').addClass('success-bg');    
+        }else if(alert_type == 'danger'){
+            $('.alert').addClass('danger-bg');                             
+        }
+        
+        $('.alert').fadeIn().delay(10000).fadeOut();
+    }
+    
     // Add Customer Button
     $('#add_customer_btn').click(function(){
         $(this).addClass('nav-hover');
@@ -15,7 +30,7 @@ $(function() {
         $("input, button").prop('disabled', true);
         // Validate the Form
         if($("input[name='first_name']").val() == 0){
-            $("input[name='first_name']").addClass('error-border'); 
+            $("input[name='first_name']").addClass('error-border');
             $("input, button").prop('disabled', false);
             $('.loading').fadeOut();
         }else if($("input[name='middle_name']").val() == 0){
@@ -72,15 +87,25 @@ $(function() {
                 url : formURL,
                 type: "POST",
                 data : post_data,
-                success:function(data, textStatus, jqXHR){
-                    //data: return data from server
-                    $("input, button").prop('disabled', false);
-            $('.loading').fadeOut();
+                success:function(data, textStatus, jqXHR, response){
+                    if(jqXHR.responseText == 'customer_exists'){ 
+                        var customer_name = post_data.first_name + ' ' + post_data.middle_name + ' ' + post_data.last_name;
+                        alert_msg('warning', '<strong>'+customer_name + '</strong> is already in the system.');
+                        $("input, button").prop('disabled', false);
+                        $('.loading').fadeOut();
+                    }
+                    else{
+                        var customer_name = post_data.first_name + ' ' + post_data.middle_name + ' ' + post_data.last_name;
+                        alert_msg('success', '<strong>'+customer_name + '</strong> has been added successfully in the System.');
+                        $('input').val('');
+                        $("input, button").prop('disabled', false);
+                        $('.loading').fadeOut();
+                    }
+                    
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    //if fails      
+                error: function(jqXHR, textStatus, errorThrown) {  
                     $("input, button").prop('disabled', false);
-            $('.loading').fadeOut();
+                    $('.loading').fadeOut();
                 }
             });
         }

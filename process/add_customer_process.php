@@ -25,6 +25,6 @@
     if($check == true){
         $query = $Customers->add_customer($first_name, $middle_name, $last_name, $company_name, $street_name, $city_name, $country_name, $mobile1, $mobile2, $mobile3, $mobile4, $email1, $email2);
     }else{
-        echo "false";    
+        echo 'customer_exists';
     }
 ?>

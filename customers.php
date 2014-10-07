@@ -13,12 +13,13 @@
             </div><!-- container -->
         </div><!-- col-25 -->
         <div class='col-72' id='content'>
-            <div class='alert'><p>This is the Latest</p></div>
+            <div class='alert yellow-bg'><p>This is the Latest</p></div>
             <div class='loading'><i class="fa fa-4x fa-refresh fa-spin"></i></div>
             <div class='overlay'></div>
             <div class='container'>
                 <div id='inner-content'>
-                    <!-- Loading Pages Here -->
+                    
+                <!-- Loading Pages Here -->
                 </div>
             </div>
         </div><!-- col-72 -->
