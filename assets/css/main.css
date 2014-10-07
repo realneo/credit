@@ -50,6 +50,7 @@ nav li:hover{
 .nav-hover{
     background-color:#456;
     padding:13px;
+    font-weight: bold;
 }
 /* POSITIONING *************************/
 .pull-right{float:right;}
@@ -95,20 +96,23 @@ nav li:hover{
 .table tr{
     vertical-align: middle;
     font-size:12px;
+    cursor: pointer;
 }
 
 .table th{
     background-color:#234;
     padding:10px;
-    border-radius: 5px;
 }
 
 .table td{
     background-color:#ccc;
     padding:10px;
-    border-radius: 5px;
     color:#345;
     text-align: right;
+}
+
+.table-hover td:hover{
+    background-color:#ccd;    
 }
 
 

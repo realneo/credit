@@ -58,5 +58,12 @@
             }
         }
         
+        public function get_customers($order_by, $order){
+            $this->db->query("SELECT * FROM `customers` ORDER BY ".$order_by." ".$order);
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
     }
 ?>

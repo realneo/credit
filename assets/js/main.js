@@ -15,13 +15,25 @@ $(function() {
         $('.alert').fadeIn().delay(10000).fadeOut();
     }
     
+    // Loading a page in the 
+    function load_page(selector, file){
+        $('.loading').fadeIn();
+        $(selector).fadeOut(10).delay(30).load(file).delay(500).fadeIn();
+        $('.loading').fadeOut();
+    }
+    
     // Add Customer Button
     $('#add_customer_btn').click(function(){
         $(this).addClass('nav-hover');
-        $('.loading').fadeIn();
-        $('#inner-content').delay(500).load('includes/new_customer_form.php');
-        $('#inner-content').fadeIn();
-        $('.loading').fadeOut();
+        $('#view_customers_btn').removeClass('nav-hover');
+        load_page('#inner-content', 'includes/new_customer_form.php');
+    });
+    
+    // Add Customer Button
+    $('#view_customers_btn').click(function(){
+        $('#add_customer_btn').removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/view_customers.php');
     });
 
     // Add Customer Submit Form

@@ -7,7 +7,7 @@
                 <nav>
                     <ul>
                         <li id='add_customer_btn'><a href='#'>Add Customer</a></li>
-                        <li><a href='#'>View Customers</a></li>
+                        <li id='view_customers_btn'><a href='#'>View Customers</a></li>
                     </ul>
                </nav>
             </div><!-- container -->
