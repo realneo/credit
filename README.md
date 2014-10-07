@@ -2,29 +2,32 @@ loans
 =====
 
 A Loan Management System that will handle from date loan was taken and SMS follow up. 
-if($('input').val() == ''){
-            $("input, button").prop('disabled', false);
-            $('.loading').fadeOut();
-        }else{
-            $("input, button").prop('disabled', true);
-            $("button[type='submit']").html("<i class='fa fa-cog fa-spin text-desaturated-blue'></i> Loading...");
 
-            var postData = $(this).serializeArray();
-            var formURL = $(this).attr("action");
-            $.ajax(
-            {
-                url : formURL,
-                type: "POST",
-                data : postData,
-                success:function(data, textStatus, jqXHR) 
-                {
-                    //data: return data from server
-                    alert('awesome');
-                },
-                error: function(jqXHR, textStatus, errorThrown) 
-                {
-                    //if fails  
-                    alert('Boomer');
-                }
-            });
-        }
+<h3>Languages / Scripts / Plugins Used</h3>
+<h4>Languages / Scripts</h4>
+<ul>
+    <li>HTML 5</li>
+    <li>CSS 3</li>
+    <li>OOP - PHP</li>
+    <li>PDO - MySQL</li>
+    <li>jQuery</li>
+</ul>
+<h4>Fonts</h4>
+<ul>
+    <li>Font Awesome</li>
+</ul>
+<h3>New Customer Form</h3>
+<ul>
+    <li>First Name</li>
+    <li>Middle Name</li>
+    <li>Last Name</li>
+    <li>Company Name</li>
+    <li>Street Name</li>
+    <li>City Name</li>
+    <li>Email 1</li>
+    <li>Email 2</li>
+    <li>Mobile 1</li>
+    <li>Mobile 2</li>
+    <li>Mobile 3</li>
+    <li>Mobile4</li>
+</ul>
