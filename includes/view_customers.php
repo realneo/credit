@@ -15,9 +15,12 @@
         <th>Email 1</th>
         <th>Street</th>
     </tr>
-   <?php foreach($customers as $customer){ ?>
+   <?php 
+        $count = 1;
+        foreach($customers as $customer){ 
+    ?>
     <tr>
-        <td><?php echo $customer['id']; ?></td>
+        <td><?php echo $count++ ?></td>
         <td><?php echo $customer['customer_company_name']; ?></td>
         <td><?php echo $customer['customer_first_name'].' '. $customer['customer_middle_name'].' '. $customer['customer_last_name']; ?></td>
         <td><?php echo $customer['customer_mobile1']; ?></td>
