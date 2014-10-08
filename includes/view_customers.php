@@ -10,6 +10,7 @@
   <tr>
         <th>No</th>
         <th>Company</th>
+        <td>Loan Balance</td>
         <th>Full Name</th>
         <th>Mobile 1</th>
         <th>Email 1</th>
@@ -22,6 +23,7 @@
     <tr>
         <td><?php echo $count++ ?></td>
         <td><?php echo $customer['customer_company_name']; ?></td>
+        <td><?php echo $customer['customer_balance']; ?></td>
         <td><?php echo $customer['customer_first_name'].' '. $customer['customer_middle_name'].' '. $customer['customer_last_name']; ?></td>
         <td><?php echo $customer['customer_mobile1']; ?></td>
         <td><?php echo $customer['customer_email1']; ?></td>
