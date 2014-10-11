@@ -301,5 +301,12 @@ $(function() {
     });
     
     
+    // Calculating the Loan Amount with the Installments
+    var schedule_number;
+    $(document).on("change", "#schedule_number", function() {
+        schedule_number = $('#schedule_number').val();
+        var number = total_amount / schedule_number
+        $('#payment_amount').val(number);
+    });
     
 });
