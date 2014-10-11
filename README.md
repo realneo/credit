@@ -31,6 +31,16 @@ A Loan Management System that will handle from date loan was taken and SMS follo
     <li>Mobile 3</li>
     <li>Mobile4</li>
 </ul>
-for(var product = 0; product < products.length; product++){
-            console.log(products[product]);
-    }
+
+<h3>New Order Form</h3>
+<ul>
+    <li>Select Customer</li>
+    <li>Products</li>
+    <ul>
+        <li>Name</li>
+        <li>Code</li>
+        <li>Price</li>
+        <li>Quantity</li>
+    </ul>
+    <li>Installment Schedule</li>
+</ul>
