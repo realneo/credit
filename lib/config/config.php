@@ -8,6 +8,11 @@
     $db_user = 'root';          // Database User
     $db_pass = 'root';          // Database Password
     $db_name = 'hsc_db';   // Database Name
+
+    // SMS Settings
+    $sms_username = 'YoteTz';
+    $sms_password = 'Nadhir5566';
+    $sms_sender = 'HSC';
     
     if($environment == 'localhost'){
         
@@ -27,5 +32,8 @@
         define("DB_NAME", $db_name);
         
     }
-    
+
+    define('SMS_USERNAME', $sms_username);
+    define('SMS_PASSWORD', $sms_password);
+    define('SMS_SENDER', $sms_sender);
 ?>

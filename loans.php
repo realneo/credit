@@ -3,7 +3,7 @@
     <div class='container'>
         <div class='col-24'>
            <div class='container'>
-                <div class='col-header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-users fa-1x padding-left-10 text-desaturated-blue"></i> Customers </p></div>
+                <div class='col-header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-money fa-1x padding-left-10 text-desaturated-blue"></i> Loans </p></div>
                 <nav>
                     <ul>
                         <li id='add_customer_btn'><a href='#'>Add Customer</a></li>

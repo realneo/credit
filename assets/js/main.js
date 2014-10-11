@@ -18,8 +18,10 @@ $(function() {
     // Loading a page in the 
     function load_page(selector, file){
         $('.loading').fadeIn();
-        $(selector).fadeOut(10).delay(30).load(file).delay(500).fadeIn();
-        $('.loading').fadeOut();
+        $(selector).fadeOut(10).stop().delay(30).load(file, function() {
+            $('.loading').fadeOut();
+        }).delay(500).fadeIn();
+        //$(selector).fadeOut(10).delay(30).load(file).delay(500).fadeIn();
     }
     
     // Add Customer Button
@@ -131,5 +133,158 @@ $(function() {
     $(document).on("change", "input", function() {
         $(this).removeClass('error-border');
     });
+    
+    // New Order Button
+    $('#new_order_form_btn').click(function(){
+        $('#new_order_form_btn').removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/new_order_form.php');
+    });
+    
+    // Adding Products to the Order Form
+    var products = []; // New Array to hold the products Values
+    var total_amount = 0;
+    $(document).on("click", "#add_product_btn", function(e) {
+        $('.loading').fadeIn();
+        var product_name = $("#product_name").val();
+        var product_code = $('#product_code').val();
+        var product_price = $('#product_price').val();
+        var product_quantity = $('#product_quantity').val();
+        var product_amount = $('#product_amount').val();
+        var number = products.length + 1;
+        
+        if(!product_name || !product_code || !product_price || !product_quantity){
+            alert_msg('warning', 'Please Fill in all the fields before Adding another product');  
+            if(!product_name){
+                $('#product_name').addClass('error-border');  
+            }else if(!product_code){
+                $('#product_code').addClass('error-border');
+            }else if(!product_price){
+                $('#product_price').addClass('error-border');
+            }else if(!product_quantity){
+                $('#product_quantity').addClass('error-border');
+            }
+            $('.loading').fadeOut();
+        }else{
+        
+            products[products.length] = [products.length, product_name, product_code, product_price, product_quantity, product_amount]; 
+
+            $('#order_products_display').fadeIn();
+            $('#order_products_display tr:last').after('<tr><td>'+number+'</td><td>'+product_name+'</td><td>'+product_code+'</td><td>'+product_price+'</td><td>'+product_quantity+'</td><td>'+product_amount+'</td><td><a href="#" class="remove_btn text-desaturated-blue">Remove</a></td></tr>');
+
+            total_amount = parseInt(total_amount) + parseInt(product_amount);
+            $('#total_amount').fadeOut().delay(400).html(total_amount).fadeIn();
+            
+            //console.log(total_amount);
+            //console.log(products);
+            $('.loading').fadeOut();
+        }
+        
+        e.preventDefault();
+    });
+    
+    // Amount Calculation System
+    $(document).on("change", "#product_quantity", function() {
+        $('.loading').fadeIn();
+        var product_price = $('#product_price').val();
+        var product_quantity = $('#product_quantity').val();
+        var product_amount = product_price * product_quantity;
+        
+        $('#product_amount').val(product_amount);
+        $('.loading').fadeOut();
+    });
+    
+    // Remove Products 
+    $(document).on("click", ".remove_btn", function() {
+        $('.loading').fadeIn();
+        $(this).parent().parent().fadeOut();
+        var array_id = $(this).parent().siblings().html()-1;
+        //products.splice(products[array_id], 1);
+        delete products[array_id];
+        //console.log(products);
+        //total_amount = products[array_id][5];
+        var amount = $(this).parent().siblings(':last').html();
+        total_amount = parseInt(total_amount) - parseInt(amount);
+        $('#total_amount').fadeOut().delay(500).html(total_amount).fadeIn();
+        //console.log(total_amount);
+        $('.loading').fadeOut();
+    });
+    
+    // Submitting the Order Form 
+    $(document).on("submit", "#new_order_form", function(e) {
+        $('.loading').fadeIn();
+        $("input, button").prop('disabled', true);
+        // Check Form Data
+        if(!$('#customer_id').val()){
+            alert_msg('warning', 'Select Customer before proceeding');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if(total_amount == 0){
+            alert_msg('warning', 'Add Products to this Order before proceeding');
+            $('#product_name').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if($('#schedule_number').val() == 0){
+            alert_msg('warning', 'Enter Schedule Number');
+            $('#schedule_number').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if($('#payment_schedule').val() == 0){
+            alert_msg('warning', 'Select the Payment Schedule of this Order');
+            $('#payment_schedule').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if($('#payment_amount').val() == 0){
+            alert_msg('warning', 'Enter your Payment Amount');
+            $('#payment_amount').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else{
+            
+            var customer_id = $('#customer_id').val();
+            var payment_schedule = $('#payment_schedule').val();
+            var schedule_number = $('#schedule_number').val();
+            var payment_amount = $('#payment_amount').val();
+            
+            /* This Form will update 3 Tables
+            /* 1. loan_orders
+            /* 2. loan_products
+            /* 3. loan_payment_schedule
+            */
+            
+            var loan_order_id;
+            
+            // Inserting in the loan_orders
+            var post_data = {
+                customer_id : customer_id,
+                order_amount : parseInt(total_amount)
+            }
+            var url = 'process/new_order_process.php';
+            
+            $.post(url, post_data, function(result){
+                if(result > 0){
+                    loan_order_id = result; 
+                    $("input, button").prop('disabled', false);
+                    alert_msg('success', 'New Order successfully added');
+                    
+                    // Inserting in the loan_products
+                    
+                    
+                    $('.loading').fadeOut();
+                }else{
+                    alert_msg('danger', 'There was an Internal Problem, Please contact the Administration');
+                    $("input, button").prop('disabled', false);
+                    
+                    
+                    $('.loading').fadeOut();
+                }
+                
+            });
+        }
+        
+        e.preventDefault();
+    });
+    
+    
     
 });

@@ -57,6 +57,7 @@ nav li:hover{
 .pull-left{float:left;}
 
 .text-center{text-align: center}
+.text-right{text-align: right}
 
 .margin-10{margin:10px;}
 .margin-20{margin:20px;}
@@ -261,6 +262,14 @@ nav li:hover{
 .error-border{
     border:3px dashed red;    
 }
+
+/************************************
+ * Order Display
+ ************************************/
+#order_products_display{
+    display:none;   
+}
+
 /************************************
  * Footer
  ************************************/

@@ -3,6 +3,7 @@
     require_once('../lib/classes/Customers.php');
 
     $Customers = new Customers($db);
+    $Sms = new Sms($db);
     
     // Getting & Securing Data from the Form
     $first_name = $Customers->secure_input($_POST['first_name']);
@@ -24,6 +25,9 @@
     $check = $Customers->check_customer_exists($first_name, $middle_name, $last_name, $email1);
     if($check == true){
         $query = $Customers->add_customer($first_name, $middle_name, $last_name, $company_name, $street_name, $city_name, $country_name, $mobile1, $mobile2, $mobile3, $mobile4, $email1, $email2);
+        if($query == true){
+            $Sms->send($mobile1, $first_name. ' ' . $middle_name. ' '. $last_name.', Thank you for being our valued Customer. Please feel free to contact 0712 700 000 for any inquiries.');            
+        }
     }else{
         echo 'customer_exists';
     }

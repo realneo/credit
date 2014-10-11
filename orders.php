@@ -3,11 +3,12 @@
     <div class='container'>
         <div class='col-24'>
            <div class='container'>
-                <div class='col-header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-users fa-1x padding-left-10 text-desaturated-blue"></i> Customers </p></div>
+                <div class='col-header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-file-text fa-1x padding-left-10 text-desaturated-blue"></i> Orders </p></div>
                 <nav>
                     <ul>
-                        <li id='add_customer_btn'><a href='#'>Add Customer</a></li>
-                        <li id='view_customers_btn'><a href='#'>View Customers</a></li>
+                        <li id='new_order_form_btn'><a href='#'>New Order</a></li>
+                        <li id='pending_orders_btn'><a href='#'>Pending Orders</a></li>
+                        <li id='completed_orders_btn'><a href='#'>Completed Orders</a></li>
                     </ul>
                </nav>
             </div><!-- container -->
