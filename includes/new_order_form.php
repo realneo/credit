@@ -42,13 +42,14 @@
     <br />
     
     <button class='input' id='add_product_btn'><i class="fa fa-plus text-desaturated-blue"></i> Add Another Product</button>
-    Total : <span class='text-11'>Tshs. </span><span class='text-bold text-right' id='total_amount'></span>
+    Total : <span class='text-11'>Tshs. </span><span class='text-bold text-right total_amount'></span>
     <p></p>
     <div class='divider'></div>
     <p></p>
     
     <p>Installment Schedule</p>
-    <input class='input required text-right' type='number' id='schedule_number' name='schedule_number' size='6' value='' Placeholder='Number' />
+    Total : <span class='text-11'>Tshs. </span><span class='text-bold text-right total_amount'></span>
+    <input class='input required text-right' type='number' id='schedule_number' name='schedule_number' size='6' value='' Placeholder='Number of Installments' />
     <select name='payment_schedule' id='payment_schedule' class='input'>
        <option value=''>Select Payment Schedule</option>
         <option value='day'>Day (s)</option>

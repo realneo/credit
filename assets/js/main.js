@@ -175,7 +175,7 @@ $(function() {
             $('#order_products_display tr:last').after('<tr><td>'+number+'</td><td>'+product_name+'</td><td>'+product_code+'</td><td>'+product_price+'</td><td>'+product_quantity+'</td><td>'+product_amount+'</td><td><a href="#" class="remove_btn text-desaturated-blue">Remove</a></td></tr>');
 
             total_amount = parseInt(total_amount) + parseInt(product_amount);
-            $('#total_amount').fadeOut().delay(400).html(total_amount).fadeIn();
+            $('.total_amount').fadeOut().delay(400).html(total_amount).fadeIn();
             
             //console.log(total_amount);
             //console.log(products);
@@ -217,7 +217,7 @@ $(function() {
         //total_amount = products[array_id][5];
         var amount = $(this).parent().siblings(':last').html();
         total_amount = parseInt(total_amount) - parseInt(amount);
-        $('#total_amount').fadeOut().delay(500).html(total_amount).fadeIn();
+        $('.total_amount').fadeOut().delay(500).html(total_amount).fadeIn();
         //console.log(total_amount);
         $('.loading').fadeOut();
     });
@@ -280,6 +280,7 @@ $(function() {
                     // Inserting in the loan_products
                     
                     $.post('process/order_products_process.php', {'products':products, 'order_id': loan_order_id}, function(result){
+                        
                         $("input, button").prop('disabled', false);
                         alert_msg('success', 'New Order successfully added');
                         console.log(result);
