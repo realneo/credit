@@ -15,6 +15,8 @@ $(function() {
         $('.alert').fadeIn().delay(10000).fadeOut();
     }
     
+    
+    
     // Loading a page in the 
     function load_page(selector, file){
         $('.loading').fadeIn();
@@ -177,7 +179,17 @@ $(function() {
             
             //console.log(total_amount);
             //console.log(products);
+            //var test = JSON.stringify(products);
+            //console.log(test);
+            /*
+            for(var product = 0; product < products.length; product++){
+                console.log(products[product]);
+            */
+            
+            //var test = array2json(products);
+            //console.log(test);
             $('.loading').fadeOut();
+            
         }
         
         e.preventDefault();
@@ -264,13 +276,15 @@ $(function() {
             $.post(url, post_data, function(result){
                 if(result > 0){
                     loan_order_id = result; 
-                    $("input, button").prop('disabled', false);
-                    alert_msg('success', 'New Order successfully added');
-                    
+        
                     // Inserting in the loan_products
                     
-                    
-                    $('.loading').fadeOut();
+                    $.post('process/order_products_process.php', {'products':products, 'order_id': loan_order_id}, function(result){
+                        $("input, button").prop('disabled', false);
+                        alert_msg('success', 'New Order successfully added');
+                        console.log(result);
+                        $('.loading').fadeOut();
+                    });
                 }else{
                     alert_msg('danger', 'There was an Internal Problem, Please contact the Administration');
                     $("input, button").prop('disabled', false);
