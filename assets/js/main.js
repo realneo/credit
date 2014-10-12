@@ -300,8 +300,8 @@ $(function() {
                                 if(d == 'true'){
                                     $("input, button").prop('disabled', false);
                                     alert_msg('success', 'New Order successfully added');
-                                    //products.length = 0
-                                    //load_page('#inner-content', 'includes/new_order_form.php');
+                                    products.length = 0
+                                    load_page('#inner-content', 'includes/new_order_form.php');
                                     $('.loading').fadeOut();
                                 }else{
                                     alert_msg('danger', 'There was an Internal Problem, Please contact the Administration');
