@@ -49,15 +49,11 @@
     
     <p>Installment Schedule</p>
     <span class='text-11'>Tshs. </span><span class='text-bold text-right total_amount'> </span> 
-    <input class='input required text-right' type='number' id='schedule_number' name='schedule_number' size='6' value='' Placeholder='Number of Installments' />
-    <select name='payment_schedule' id='payment_schedule' class='input'>
-       <option value=''>Select Payment Schedule</option>
-        <option value='day'>Day (s)</option>
-        <option value='week'>Week (s)</option>
-        <option value='month'>Month (s)</option>
-        <option value='year'>Year (s)</option>
-    </select>
-    <input class='input required text-right' disabled type='number' id=payment_amount name='payment_amount' value='' Placeholder='Installment Amount' />
+    <input class='input required text-right' type='number' id='schedule_number' name='schedule_number' value='' Placeholder='Number of Instalments' />
+    <input class='input required text-right' disabled type='number' id='payment_amount' name='payment_amount' value='' Placeholder='Instalment Amount' />
+    <input class='input required text-right' type='number' id='payment_days' name='payment_days' value='' Placeholder='Payment Days' />
+    <input class='input required text-right datepicker' type='text' id='start_date' name='start_date' value='' Placeholder='Payment Start' />
+    
     <p></p>
     <div class='divider'></div>
     <p></p>

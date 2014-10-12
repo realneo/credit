@@ -246,9 +246,14 @@ $(function() {
             $('#payment_schedule').addClass('error-border');
             $("input, button").prop('disabled', false);
             $('.loading').fadeOut();
-        }else if($('#payment_amount').val() == 0){
-            alert_msg('warning', 'Enter your Payment Amount');
-            $('#payment_amount').addClass('error-border');
+        }else if($('#payment_days').val() == 0){
+            alert_msg('warning', 'Enter your Payment Days');
+            $('#payment_days').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if($('#start_date').val() == 0){
+            alert_msg('warning', 'Enter your Start Date');
+            $('#start_date').addClass('error-border');
             $("input, button").prop('disabled', false);
             $('.loading').fadeOut();
         }else{
@@ -257,6 +262,8 @@ $(function() {
             var payment_schedule = $('#payment_schedule').val();
             var schedule_number = $('#schedule_number').val();
             var payment_amount = $('#payment_amount').val();
+            var payment_days = $('#payment_days').val();
+            var start_date = $('#start_date').val();
             
             /* This Form will update 3 Tables
             /* 1. loan_orders
@@ -279,13 +286,32 @@ $(function() {
         
                     // Inserting in the loan_products
                     
-                    $.post('process/order_products_process.php', {'products':products, 'order_id': loan_order_id}, function(result){
-                        
-                        $("input, button").prop('disabled', false);
-                        alert_msg('success', 'New Order successfully added');
-                        console.log(result);
-                        $('.loading').fadeOut();
+                    $.post('process/order_products_process.php', {'products':products, 'order_id': loan_order_id}, function(data){
+                        if(data == 'true'){
+                            var post_d = {
+                                'order_id': loan_order_id,
+                                'schedule_number':schedule_number,
+                                'payment_amount':payment_amount,
+                                'payment_days':payment_days,
+                                'start_date':start_date
+                            }
+                            
+                            $.post('process/schedule_order_process.php', post_d, function(d){
+                                if(d == 'true'){
+                                    $("input, button").prop('disabled', false);
+                                    alert_msg('success', 'New Order successfully added');
+                                    $('.loading').fadeOut();
+                                }else{
+                                    alert_msg('danger', 'There was an Internal Problem, Please contact the Administration');
+                                    $("input, button").prop('disabled', false);    
+                                }
+                            });
+                            
+                        }
+    
                     });
+                    
+                    
                 }else{
                     alert_msg('danger', 'There was an Internal Problem, Please contact the Administration');
                     $("input, button").prop('disabled', false);
@@ -307,6 +333,11 @@ $(function() {
         schedule_number = $('#schedule_number').val();
         var number = total_amount / schedule_number
         $('#payment_amount').val(number);
+    });
+    
+    // Datepicker function
+    $(document).on('focus', '.datepicker', function(){
+        $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
     });
     
 });

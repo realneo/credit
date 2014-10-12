@@ -7,7 +7,7 @@
         </div><!-- footer -->
         
         <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="plugins/jquery-ui/jquery-ui.min.js"></script>
         <script type="text/javascript" src="assets/js/main.js"></script>
-        
     </body>
 </html>   

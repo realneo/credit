@@ -40,8 +40,32 @@
                 $this->db->bind(':product_amount', $product[5]);
 
                 $this->db->execute();
+                
+                if($this->db->lastInsertId()>0){
+                    return  $this->db->lastInsertId();    
+                }else{
+                    return  false;    
+                }
             }
-
+        }
+        
+        public function add_payment_schedule($order_id, $schedule_number, $payment_amount, $payment_days, $start_date){
+            $this->db->query("INSERT INTO `loan_payment_schedule` (`order_id`, `schedule_number`, `payment_amount`, `payment_days`, `start_date`) 
+                                    VALUES (:order_id, :schedule_number, :payment_amount, :payment_days, :start_date)");
+            
+            $this->db->bind(':order_id', $order_id);
+            $this->db->bind(':schedule_number', $schedule_number);
+            $this->db->bind(':payment_amount', $payment_amount);
+            $this->db->bind(':payment_days', $payment_days);
+            $this->db->bind(':start_date', $start_date);
+            
+            $this->db->execute();
+            
+            if($this->db->lastInsertId()>0){
+                    return  true;   
+                }else{
+                    return  false;    
+                }
         }
         
     }

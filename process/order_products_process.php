@@ -11,9 +11,9 @@
     $query = $Orders->add_products($products, $order_id);
 
     if($query){
-        return true;    
+        echo 'true';    
     }else{
-        return false;    
+        echo 'false';    
     }
 
 ?>
