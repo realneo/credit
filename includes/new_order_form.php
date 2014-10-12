@@ -1,13 +1,15 @@
 <?php
     require_once('../lib/config/autoload.php');
     require_once('../lib/classes/Customers.php');
+    require_once('../lib/classes/Orders.php');
 
     $Customers = new Customers($db);
+    $Orders = new Orders($db);
 
     $customers = $Customers->get_customers('id', 'ASC');
 ?>
 <form id='new_order_form' name='new_order_form' action='process/new_order_process.php' method="post">   
-    <p>ORDER NO: <strong>145</strong></p>
+    <p>ORDER NO: <strong><?php echo $Orders->last_id()+1; ?></strong></p>
     <select name='customer_id' id='customer_id' class='input'>
         <option value=''>Select a Customer</option>
         <?php foreach($customers as $customer){ ?>

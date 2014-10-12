@@ -30,22 +30,26 @@
         
         public function add_products($products_array, $order_id){
             foreach($products_array as $product){
-                $this->db->query("INSERT INTO `loan_products` (`product_order_id`, `product_name`, `product_code`, `product_price`, `product_quantity`, `product_amount`) 
-                                                        VALUES (:order_id, :product_name, :product_code, :product_price, :product_quantity, :product_amount)");
-                $this->db->bind(':order_id', $order_id);
-                $this->db->bind(':product_name', $product[1]);
-                $this->db->bind(':product_code', $product[2]);
-                $this->db->bind(':product_price',$product[3]);
-                $this->db->bind(':product_quantity', $product[4]);
-                $this->db->bind(':product_amount', $product[5]);
-
-                $this->db->execute();
-                
-                if($this->db->lastInsertId()>0){
-                    return  $this->db->lastInsertId();    
+                if(!$product[1]){
+                    //Do Nothing    
                 }else{
-                    return  false;    
+                    $this->db->query("INSERT INTO `loan_products` (`product_order_id`, `product_name`, `product_code`, `product_price`, `product_quantity`, `product_amount`) 
+                                                            VALUES (:order_id, :product_name, :product_code, :product_price, :product_quantity, :product_amount)");
+                    $this->db->bind(':order_id', $order_id);
+                    $this->db->bind(':product_name', $product[1]);
+                    $this->db->bind(':product_code', $product[2]);
+                    $this->db->bind(':product_price',$product[3]);
+                    $this->db->bind(':product_quantity', $product[4]);
+                    $this->db->bind(':product_amount', $product[5]);
+
+                    $this->db->execute();
                 }
+                
+            }
+            if($this->db->lastInsertId()>0){
+                return  $this->db->lastInsertId();    
+            }else{
+                return  false;    
             }
         }
         
@@ -66,6 +70,16 @@
                 }else{
                     return  false;    
                 }
+        }
+        
+        public function last_id(){
+            $this->db->query("SELECT `id` FROM `loan_orders` ORDER BY `id` DESC");
+            $row = $this->db->single();
+            if($row){
+                return $row['id'];
+            }else{
+                return false;
+            }
         }
         
     }
