@@ -15,7 +15,11 @@ $(function() {
         $('.alert').fadeIn().delay(10000).fadeOut();
     }
     
-    
+    //nav animation
+    $('div.nav_header').hover(function(){
+        $(this).siblings().next('nav').stop().slideUp();
+        $(this).next('nav').stop().slideDown();
+    });
     
     // Loading a page in the 
     function load_page(selector, file, data){
