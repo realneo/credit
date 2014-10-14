@@ -141,6 +141,7 @@ $(function() {
     $('#new_order_form_btn').click(function(){
         $('#pending_orders_btn').removeClass('nav-hover');
         $('#approved_orders_btn').removeClass('nav-hover');
+        $('#declined_orders_btn').removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/new_order_form.php');
     });
@@ -149,6 +150,7 @@ $(function() {
     $('#pending_orders_btn').click(function(){
         $('#new_order_form_btn').removeClass('nav-hover');
         $('#approved_orders_btn').removeClass('nav-hover');
+        $('#declined_orders_btn').removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_pending_orders.php');
     });
@@ -157,10 +159,20 @@ $(function() {
     $('#approved_orders_btn').click(function(){
         $('#new_order_form_btn').removeClass('nav-hover');
         $('#pending_orders_btn').removeClass('nav-hover');
-        $('#new_order_form_btn').removeClass('nav-hover');
+        $('#declined_orders_btn').removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_approved_orders.php');
     });
+    
+    // Declined Orders Button
+    $('#declined_orders_btn').click(function(){
+        $('#new_order_form_btn').removeClass('nav-hover');
+        $('#pending_orders_btn').removeClass('nav-hover');
+        $('#approved_orders_btn').removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/view_declined_orders.php');
+    });
+    
     
     // Adding Products to the Order Form
     var products = []; // New Array to hold the products Values
@@ -406,13 +418,58 @@ $(function() {
                 "Yes": function() {
                     $('.loading').fadeIn();
                     $( this ).dialog( "close" );
-                    $.post('includes/approve_process.php',{id:order_id}, function(c){
+                    $.post('process/approve_process.php',{id:order_id}, function(c){
                         if(c == true){
                             alert_msg('success', "Order Number "+order_id+" is successfully approved");
                             order_row.fadeOut(500);
                             $('.loading').fadeOut();
                         }else{
-                            
+                            alert_msg('danger', "There was a problem with the system.");
+                            $('.loading').fadeOut();
+                        }
+                    });
+                },
+                Cancel: function() {
+                    $( this ).dialog( "close" );
+                }
+            },
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "explode",
+                duration: 500
+            }
+        });
+        
+        e.preventDefault();
+    });
+    
+    
+    $(document).on('click', '.order_decline_btn', function(e){
+        var order_id = $(this).siblings().next().next().html();
+        var order_row = $(this).parent();
+        $( "#dialog" )
+        .appendTo('#dialog')
+        .html("<p class='text-desaturated-blue text-center'> Are you sure you want to <strong class='text-desaturated-blue'>Decline</strong> this order?</p>")
+        .dialog({
+            resizable: false,
+            modal: true,
+            title:'Confirmation',
+            buttons: {
+                "Yes": function() {
+                    $('.loading').fadeIn();
+                    $( this ).dialog( "close" );
+                    var reason = prompt('Please give a reason for this Decline');
+                    $.post('process/decline_process.php',{id:order_id, reason:reason}, function(c){
+                        if(c == true){
+                            alert_msg('success', "Order Number "+order_id+" is successfully Declined");
+                            order_row.fadeOut(500);
+                            $('.loading').fadeOut();
+                        }else{
+                            alert_msg('danger', "There was a problem with the system.");
+                            $('.loading').fadeOut();
                         }
                     });
                 },

@@ -5,7 +5,8 @@
     $Orders = new Orders($db);
     
     $order_id = $_POST['id'];
-    $query = $Orders->update_approve($order_id, 'approved');
+    $reason = $_POST['reason'];
+    $query = $Orders->update_decline($order_id, 'Declined', $reason);
 
     if($query == true){
         echo true;

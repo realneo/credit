@@ -127,15 +127,37 @@
             }
         }
         
+        public function update_decline($order_id, $status, $reason){
+            $this->db->query("UPDATE `loan_orders` SET `order_status` = :status, `order_status_reason` = :reason WHERE `id` = :id;");  
+            $this->db->bind(':id', $order_id);
+            $this->db->bind(':status', $status);
+            $this->db->bind(':reason', $reason);
+            
+            $query = $this->db->execute();
+            
+            if($query == true){
+                return true;
+            }else{
+                return false;   
+            }
+        }
+        
         public function get_pendings(){
-            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'pending' ORDER BY `id` DESC");
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'Pending' ORDER BY `id` DESC");
             $this->db->execute();
             
             return $this->db->resultset();
         }
         
         public function get_approved(){
-            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'approved' ORDER BY `id` DESC");
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'Approved' ORDER BY `id` DESC");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
+        public function get_declined(){
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'Declined' ORDER BY `id` DESC");
             $this->db->execute();
             
             return $this->db->resultset();
