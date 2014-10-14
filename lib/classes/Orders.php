@@ -113,5 +113,25 @@
             return $this->db->single();
         }
         
+        public function update_approve($order_id, $status){
+            $this->db->query("UPDATE `loan_orders` SET `order_status` = :status WHERE `id` = :id");  
+            $this->db->bind(':id', $order_id);
+            $this->db->bind(':status', $status);
+            
+            $query = $this->db->execute();
+            
+            if($query == true){
+                return true;
+            }else{
+                return false;   
+            }
+        }
+        
+        public function get_pendings(){
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'pending' ORDER BY `id` DESC");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
     }
 ?>

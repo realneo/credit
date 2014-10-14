@@ -8,7 +8,7 @@
     $Customers = new Customers($db);
     $Users = new Users($db);
 
-    $orders = $Orders->get_orders('id', 'ASC');
+    $orders = $Orders->get_pendings();
 ?>
 <table class='table table-hover'>
   <tr>

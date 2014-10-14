@@ -367,7 +367,7 @@ $(function() {
             },
             show: {
                 effect: "blind",
-                duration: 1000
+                duration: 500
             },
             hide: {
                 effect: "explode",
@@ -377,6 +377,47 @@ $(function() {
             minWidth : 400,
             height : 600,
             position : {my: "center top", at: "center top", of: "#container"}
+        });
+        
+        e.preventDefault();
+    });
+    
+    $(document).on('click', '.order_approve_btn', function(e){
+        var order_id = $(this).siblings().next().next().html();
+        var order_row = $(this).parent();
+        $( "#dialog" )
+        .appendTo('#dialog')
+        .html("<p class='text-desaturated-blue text-center'> Are you sure you want to <strong class='text-desaturated-blue'>APPROVE</strong> this order?</p>")
+        .dialog({
+            resizable: false,
+            modal: true,
+            title:'Confirmation',
+            buttons: {
+                "Yes": function() {
+                    $('.loading').fadeIn();
+                    $( this ).dialog( "close" );
+                    $.post('includes/approve_process.php',{id:order_id}, function(c){
+                        if(c == true){
+                            alert_msg('success', "Order Number "+order_id+" is successfully approved");
+                            order_row.fadeOut(500);
+                            $('.loading').fadeOut();
+                        }else{
+                            
+                        }
+                    });
+                },
+                Cancel: function() {
+                    $( this ).dialog( "close" );
+                }
+            },
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "explode",
+                duration: 500
+            }
         });
         
         e.preventDefault();
