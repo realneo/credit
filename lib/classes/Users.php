@@ -123,6 +123,13 @@
             return $this->db->resultset();
         }
         
+        public function get_user_profile_by_id($user_id){
+            $this->db->query("SELECT * FROM `user_profile` WHERE `id` = :user_id");
+            $this->db->bind(':user_id', $user_id);
+            $this->db->execute();
+            return $this->db->resultset();
+        }
+        
         // Get amount of user bank
         public function get_user_bank($user_id){
             $this->db->query("SELECT `user_bank` FROM `users` WHERE `id` = :user_id");

@@ -82,5 +82,12 @@
             }
         }
         
+        public function get_orders($order_by, $order){
+            $this->db->query("SELECT * FROM `loan_orders` ORDER BY ".$order_by." ".$order);
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
     }
 ?>

@@ -65,5 +65,13 @@
             return $this->db->resultset();
         }
         
+        public function get_customer_by_id($customer_id){
+            $this->db->query("SELECT * FROM `customers` WHERE `id` = :id");
+            $this->db->bind(':id', $customer_id);
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
     }
 ?>

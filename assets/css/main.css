@@ -270,6 +270,38 @@ nav li:hover{
     display:none;   
 }
 
+td.order_view_details_btn{
+    background-color:#234;
+    font-weight:bold;
+}
+
+td.order_view_details_btn:hover{
+    font-weight:lighter;
+    background-color:#345;
+    color:#234;
+}
+
+td.order_approve_btn{
+    background-color:green;
+    font-weight:bold;
+}
+
+td.order_approve_btn:hover{
+    font-weight:lighter;
+    background-color:darkgreen;
+    color:#234;
+}
+
+td.order_decline_btn{
+    background-color:red;
+    font-weight:bold;
+}
+
+td.order_decline_btn:hover{
+    font-weight:lighter;
+    background-color:darkred;
+    color:#234;
+}
 /************************************
  * Footer
  ************************************/
