@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Print Part of a Page With jQuery</title>
+	
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="plugins/jQuery.print.js"></script>
+	
+    <script type="text/javascript">
+
+	    // When the document is ready, initialize the link so
+	    // that when it is clicked, the printable area of the
+	    // page will print.
+	    $(function () {
+
+			// Hook up the print link.
+			$("a")
+				.attr("href", "javascript:void( 0 )")
+				.click(
+					function () {
+						// Print the DIV.
+						$(".printable").print();
+
+						// Cancel click event.
+						return (false);
+			});
+		});
+
+	</script>
+
+	<style type="text/css">
+
+		body {
+			font-family: verdana ;
+			font-size: 14px ;
+			}
+
+		h1 {
+			font-size: 180% ;
+			}
+
+		h2 {
+			border-bottom: 1px solid #999999 ;
+			}
+
+		.printable {
+			border: 1px dotted #CCCCCC ;
+			padding: 10px 10px 10px 10px ;
+			}
+
+		img {
+			background-color: #E0E0E0 ;
+			border: 1px solid #666666 ;
+			padding: 5px 5px 5px 5px ;
+			}
+
+		a {
+			color: red ;
+			}
+
+	</style>
+</head>
+<body>
+
+	<h1>
+		Print Part of a Page With jQuery
+	</h1>
+
+	<p>
+		<h3><a>PRINT</a></h3>
+	</p>
+
+	<div class="printable">
+
+		<h2>
+			Md Shah
+		</h2>
+
+		<p>
+			Md Shah, an Experienced Microsoft Professional from India
+		</p>
+
+		<p>
+		</p>
+
+		<p>
+            Nice to meet you <strong>Good Luck</strong>!
+		</p>
+
+	</div>
+
+</body>
+</html>

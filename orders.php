@@ -1,7 +1,7 @@
 <?php include_once('templates/header.php'); ?>
         
     <div class='container'>
-        <div class='col-24'>
+        <div class='col-24 no-print'>
            <div class='container'>
                 <div class='col-header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-file-text fa-1x padding-left-10 text-desaturated-blue"></i> Orders </p></div>
                 <nav>

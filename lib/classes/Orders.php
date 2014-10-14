@@ -89,5 +89,29 @@
             return $this->db->resultset();
         }
         
+        public function get_order_by_id($order_id){
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `id` = :id");
+            $this->db->bind(':id', $order_id);
+            $this->db->execute();
+            
+            return $this->db->single();
+        }
+        
+        public function get_products_by_id($order_id){
+            $this->db->query("SELECT * FROM `loan_products` WHERE `product_order_id` = :id");
+            $this->db->bind(':id', $order_id);
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
+        public function get_payment_schedule_by_id($order_id){
+            $this->db->query("SELECT * FROM `loan_payment_schedule` WHERE `order_id` = :id");
+            $this->db->bind(':id', $order_id);
+            $this->db->execute();
+            
+            return $this->db->single();
+        }
+        
     }
 ?>

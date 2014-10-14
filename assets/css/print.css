@@ -1,0 +1,6 @@
+@media print{    
+    .table{
+         width:300px;
+            background-color: #fff;
+    }
+}

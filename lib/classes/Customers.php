@@ -70,7 +70,7 @@
             $this->db->bind(':id', $customer_id);
             $this->db->execute();
             
-            return $this->db->resultset();
+            return $this->db->single();
         }
         
     }

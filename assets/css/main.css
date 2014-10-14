@@ -19,6 +19,13 @@ ul{
     list-style: none;
 }
 
+@media print{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
 /* GRID ********************************/
 .col-24{
     float:left;
@@ -114,6 +121,24 @@ nav li:hover{
 
 .table-hover td:hover{
     background-color:#ccd;    
+}
+
+table-small tr{
+    font-size:10px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.table-small th{
+    background-color:#234;
+    padding:4px;
+}
+
+.table-small td{
+    background-color:#ccc;
+    padding:4px;
+    color:#345;
+    text-align: right;
 }
 
 
@@ -262,6 +287,10 @@ nav li:hover{
 .error-border{
     border:3px dashed red;    
 }
+
+/************************************
+ * Dialos
+ ************************************/
 
 /************************************
  * Order Display

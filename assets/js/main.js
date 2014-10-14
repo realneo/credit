@@ -18,9 +18,10 @@ $(function() {
     
     
     // Loading a page in the 
-    function load_page(selector, file){
+    function load_page(selector, file, data){
+        if(typeof(data)==='undefined') data = '';
         $('.loading').fadeIn();
-        $(selector).fadeOut(10).stop().delay(30).load(file, function() {
+        $(selector).fadeOut(10).stop().delay(30).load(file, data, function() {
             $('.loading').fadeOut();
         }).delay(500).fadeIn();
         //$(selector).fadeOut(10).delay(30).load(file).delay(500).fadeIn();
@@ -352,4 +353,37 @@ $(function() {
         });
     });
     
+    // View Details of the Form in the List
+    
+    $(document).on('click', '.order_view_details_btn', function(e){
+        
+        var order_id = $(this).siblings().next().next().html();
+        
+        $('#dialog').dialog({
+            modal:true,
+            title:'Order Details',
+            open:function(){
+                load_page(this, 'includes/view_order_details.php', {id:order_id});
+            },
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            },
+            resizable : true,
+            minWidth : 400,
+            height : 600,
+            position : {my: "center top", at: "center top", of: "#container"}
+        });
+        
+        e.preventDefault();
+    });
+    
+    //Print Test
+    $(document).on('click', '.print_this', function(e){
+        $('.ui-widget-content').append("<link rel='stylesheet' href='assets/css/main.css' media='print' />").print();
+    });
 });
