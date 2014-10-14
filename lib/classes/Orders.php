@@ -133,5 +133,12 @@
             
             return $this->db->resultset();
         }
+        
+        public function get_approved(){
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'approved' ORDER BY `id` DESC");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
     }
 ?>

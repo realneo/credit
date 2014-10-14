@@ -8,7 +8,7 @@
                     <ul>
                         <li id='new_order_form_btn'><a href='#'>New Order</a></li>
                         <li id='pending_orders_btn'><a href='#'>Pending Orders</a></li>
-                        <li id='completed_orders_btn'><a href='#'>Completed Orders</a></li>
+                        <li id='approved_orders_btn'><a href='#'>Approved Orders</a></li>
                     </ul>
                </nav>
             </div><!-- container -->

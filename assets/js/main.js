@@ -140,6 +140,7 @@ $(function() {
     // New Order Button
     $('#new_order_form_btn').click(function(){
         $('#pending_orders_btn').removeClass('nav-hover');
+        $('#approved_orders_btn').removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/new_order_form.php');
     });
@@ -147,10 +148,19 @@ $(function() {
     // Pending Orders Button
     $('#pending_orders_btn').click(function(){
         $('#new_order_form_btn').removeClass('nav-hover');
+        $('#approved_orders_btn').removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_pending_orders.php');
     });
     
+    // Approved Orders Button
+    $('#approved_orders_btn').click(function(){
+        $('#new_order_form_btn').removeClass('nav-hover');
+        $('#pending_orders_btn').removeClass('nav-hover');
+        $('#new_order_form_btn').removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/view_approved_orders.php');
+    });
     
     // Adding Products to the Order Form
     var products = []; // New Array to hold the products Values
