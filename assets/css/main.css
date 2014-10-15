@@ -60,6 +60,10 @@ nav li:hover{
     font-weight: bold;
 }
 
+.nav_header{
+    cursor:context-menu;
+}
+
 .left_pane nav{
     display: none;    
 }

@@ -16,7 +16,7 @@ $(function() {
     }
     
     //nav animation
-    $('div.nav_header').hover(function(){
+    $('div.nav_header').click(function(){
         $(this).siblings().next('nav').stop().slideUp();
         $(this).next('nav').stop().slideDown();
     });
