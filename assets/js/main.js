@@ -497,6 +497,7 @@ $(function() {
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/transfer_orders.php');
     });
+    
     $(document).on('click', '.order_transfer_btn', function(e){
         var order_id = $(this).siblings().next().next().html();
         var order_row = $(this).parent();
@@ -536,5 +537,12 @@ $(function() {
             }
         });
         e.preventDefault();
+    });
+    
+    // Transfer Order Button
+    $('#view_transfer_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/view_transfered_orders.php');
     });
 });

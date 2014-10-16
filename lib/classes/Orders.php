@@ -176,5 +176,12 @@
                 return false;   
             }
         }
+        
+        public function get_transfered(){
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'Transfered' ORDER BY `id` DESC");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
     }
 ?>
