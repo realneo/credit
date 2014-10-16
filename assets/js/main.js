@@ -497,4 +497,44 @@ $(function() {
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/transfer_orders.php');
     });
+    $(document).on('click', '.order_transfer_btn', function(e){
+        var order_id = $(this).siblings().next().next().html();
+        var order_row = $(this).parent();
+         $( "#dialog" )
+        .appendTo('#dialog')
+        .html("<p class='text-desaturated-blue text-center'> Are you sure the order is <strong class='text-desaturated-blue'>TRANSFERED</strong>?</p>")
+        .dialog({
+            resizable: false,
+            modal: true,
+            title:'Confirmation',
+            buttons: {
+                "Yes": function() {
+                    $('.loading').fadeIn();
+                    $( this ).dialog( "close" );
+                    $.post('process/transfered_process.php',{id:order_id}, function(c){
+                        if(c == true){
+                            alert_msg('success', "Order Number "+order_id+" is successfully transfered");
+                            order_row.fadeOut(500);
+                            $('.loading').fadeOut();
+                        }else{
+                            alert_msg('danger', "There was a problem with the system.");
+                            $('.loading').fadeOut();
+                        }
+                    });
+                },
+                Cancel: function() {
+                    $( this ).dialog( "close" );
+                }
+            },
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "explode",
+                duration: 500
+            }
+        });
+        e.preventDefault();
+    });
 });

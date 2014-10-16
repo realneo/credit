@@ -162,5 +162,19 @@
             
             return $this->db->resultset();
         }
+        
+        public function update_transfered($order_id, $status){
+            $this->db->query("UPDATE `loan_orders` SET `order_status` = :status WHERE `id` = :id");  
+            $this->db->bind(':id', $order_id);
+            $this->db->bind(':status', $status);
+            
+            $query = $this->db->execute();
+            
+            if($query == true){
+                return true;
+            }else{
+                return false;   
+            }
+        }
     }
 ?>
