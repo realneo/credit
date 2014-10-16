@@ -30,10 +30,10 @@
                <div class='col-header nav_header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-cubes fa-1x padding-left-10 text-desaturated-blue"></i> Stock </p></div>
                 <nav>
                     <ul>
-                        <li id='#'><a href='#'>Transfer Order</a></li>
-                        <li id='#'><a href='#'>View Transfers</a></li>
-                        <li id='#'><a href='#'>Deliver Order</a></li>
-                        <li id='#'><a href='#'>View Deliveries</a></li>
+                        <li id='transfer_order_btn'><a href='#'>Transfer Order</a></li>
+                        <li id='view_transfer_btn'><a href='#'>View Transfers</a></li>
+                        <li id='deliver_transfer_btn'><a href='#'>Deliver Order</a></li>
+                        <li id='view_deliveries_btn'><a href='#'>View Deliveries</a></li>
                     </ul>
                </nav>
                <div class='col-header nav_header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-file-text fa-1x padding-left-10 text-desaturated-blue"></i> Report </p></div>
