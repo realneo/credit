@@ -1,5 +1,4 @@
 $(function() {
-    // Functions
     
     // Alert Function
     function alert_msg(alert_type, alert_msg){
@@ -33,14 +32,14 @@ $(function() {
     
     // Add Customer Button
     $('#add_customer_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
-        $('#view_customers_btn').removeClass('nav-hover');
         load_page('#inner-content', 'includes/new_customer_form.php');
     });
     
     // Add Customer Button
     $('#view_customers_btn').click(function(){
-        $('#add_customer_btn').removeClass('nav-hover');
+        $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_customers.php');
     });
@@ -143,36 +142,28 @@ $(function() {
     
     // New Order Button
     $('#new_order_form_btn').click(function(){
-        $('#pending_orders_btn').removeClass('nav-hover');
-        $('#approved_orders_btn').removeClass('nav-hover');
-        $('#declined_orders_btn').removeClass('nav-hover');
+        $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/new_order_form.php');
     });
     
     // Pending Orders Button
     $('#pending_orders_btn').click(function(){
-        $('#new_order_form_btn').removeClass('nav-hover');
-        $('#approved_orders_btn').removeClass('nav-hover');
-        $('#declined_orders_btn').removeClass('nav-hover');
+        $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_pending_orders.php');
     });
     
     // Approved Orders Button
     $('#approved_orders_btn').click(function(){
-        $('#new_order_form_btn').removeClass('nav-hover');
-        $('#pending_orders_btn').removeClass('nav-hover');
-        $('#declined_orders_btn').removeClass('nav-hover');
+        $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_approved_orders.php');
     });
     
     // Declined Orders Button
     $('#declined_orders_btn').click(function(){
-        $('#new_order_form_btn').removeClass('nav-hover');
-        $('#pending_orders_btn').removeClass('nav-hover');
-        $('#approved_orders_btn').removeClass('nav-hover');
+        $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_declined_orders.php');
     });
@@ -494,8 +485,16 @@ $(function() {
         e.preventDefault();
     });
     
+    
     //Print Test
     $(document).on('click', '.print_this', function(e){
         $('.ui-widget-content').append("<link rel='stylesheet' href='assets/css/main.css' media='print' />").print();
+    });
+    
+    // Transfer Order Button
+    $('#transfer_order_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/transfer_orders.php');
     });
 });
