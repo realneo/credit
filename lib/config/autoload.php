@@ -21,6 +21,5 @@
     // New Objects 
     $Session = new Session();
     $db = new Database();
-    //$SMS = new SMS();
 
 ?>
