@@ -376,7 +376,7 @@ $(function() {
         
         var order_id = $(this).siblings().next().next().html();
         
-        $('#dialog').dialog({
+        $('#dialog_details').dialog({
             modal:true,
             title:'Order Details',
             open:function(){

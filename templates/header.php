@@ -22,3 +22,4 @@
         
         <div id='container'>
             <div id='dialog'></div>
+            <div id='dialog_details'></div>
