@@ -17,7 +17,7 @@
     $total_amount_format = number_format($total_amount);
 
     $new_order = $Orders->add_order($customer_id, $total_amount);
-    $SMS->send($customer_mobile, $customer_name . ', your credit order of Tshs '.$total_amount_format.' is being processed. For more details, call 0712 700 000');
+    $SMS->send($customer_mobile, $customer_name . ', your credit order of Tshs '.$total_amount_format.' is being processed please wait for approval. For more details, call 0712 700 000');
 
     if($new_order == true){
         return $new_order;
