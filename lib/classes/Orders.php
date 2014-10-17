@@ -113,20 +113,6 @@
             return $this->db->single();
         }
         
-        public function update_approve($order_id, $status){
-            $this->db->query("UPDATE `loan_orders` SET `order_status` = :status WHERE `id` = :id");  
-            $this->db->bind(':id', $order_id);
-            $this->db->bind(':status', $status);
-            
-            $query = $this->db->execute();
-            
-            if($query == true){
-                return true;
-            }else{
-                return false;   
-            }
-        }
-        
         public function update_decline($order_id, $status, $reason){
             $this->db->query("UPDATE `loan_orders` SET `order_status` = :status, `order_status_reason` = :reason WHERE `id` = :id;");  
             $this->db->bind(':id', $order_id);
@@ -163,7 +149,15 @@
             return $this->db->resultset();
         }
         
-        public function update_transfered($order_id, $status){
+        public function get_delivered(){
+            $this->db->query("SELECT * FROM `loan_orders` WHERE `order_status` = 'Delivered' ORDER BY `id` DESC");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
+        
+        public function update_status($order_id, $status){
             $this->db->query("UPDATE `loan_orders` SET `order_status` = :status WHERE `id` = :id");  
             $this->db->bind(':id', $order_id);
             $this->db->bind(':status', $status);

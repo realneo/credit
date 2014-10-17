@@ -32,8 +32,8 @@
                     <ul>
                         <li id='transfer_order_btn'><a href='#'>Transfer Order</a></li>
                         <li id='view_transfer_btn'><a href='#'>View Transfers</a></li>
-                        <li id='deliver_transfer_btn'><a href='#'>Deliver Order</a></li>
-                        <li id='view_deliveries_btn'><a href='#'>View Deliveries</a></li>
+                        <li id='deliver_order_btn'><a href='#'>Deliver Order</a></li>
+                        <li id='view_delivered_btn'><a href='#'>View Deliveries</a></li>
                     </ul>
                </nav>
                <div class='col-header nav_header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-file-text fa-1x padding-left-10 text-desaturated-blue"></i> Report </p></div>

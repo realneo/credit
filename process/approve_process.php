@@ -5,7 +5,7 @@
     $Orders = new Orders($db);
     
     $order_id = $_POST['id'];
-    $query = $Orders->update_approve($order_id, 'Approved');
+    $query = $Orders->update_status($order_id, 'Approved');
 
     if($query == true){
         echo true;

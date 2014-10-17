@@ -545,4 +545,60 @@ $(function() {
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/view_transfered_orders.php');
     });
+    
+    // Transfer Order Button
+    $('#deliver_order_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/deliver_orders.php');
+    });
+    
+    // Deliver Order Button
+    $('#view_delivered_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/view_delivered_orders.php');
+    });
+    
+    $(document).on('click', '.order_delivered_btn', function(e){
+        var order_id = $(this).siblings().next().next().html();
+        var order_row = $(this).parent();
+         $( "#dialog" )
+        .appendTo('#dialog')
+        .html("<p class='text-desaturated-blue text-center'> Are you sure the order is <strong class='text-desaturated-blue'>DELIVERED</strong>?</p>")
+        .dialog({
+            resizable: false,
+            modal: true,
+            title:'Confirmation',
+            buttons: {
+                "Yes": function() {
+                    $('.loading').fadeIn();
+                    $( this ).dialog( "close" );
+                    $.post('process/delivered_process.php',{id:order_id}, function(c){
+                        if(c == true){
+                            alert_msg('success', "Order Number "+order_id+" is successfully delivered");
+                            order_row.fadeOut(500);
+                            $('.loading').fadeOut();
+                        }else{
+                            alert_msg('danger', "There was a problem with the system.");
+                            $('.loading').fadeOut();
+                        }
+                    });
+                },
+                Cancel: function() {
+                    $( this ).dialog( "close" );
+                }
+            },
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "explode",
+                duration: 500
+            }
+        });
+        e.preventDefault();
+    });
+    
 });
