@@ -29,8 +29,10 @@
     </tr>
     <?php 
         $count = 0;
+        $amount = 0; // This amount will increase per product_amount
         foreach($products as $product){
             $count++;
+            $amount += $product['product_amount'];
     ?>
         <tr>
             <td><?php echo number_format($count); ?></td>
@@ -41,6 +43,14 @@
             <td><?php echo number_format($product['product_amount']); ?></td>
         </tr>
     <?php } ?>
+        <tr>
+            <th></th>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th><?php echo number_format($amount); ?></th>
+        </tr>
 </table>
 
 <h4 class='text-desaturated-blue'>Payment Cycle</h4>
@@ -76,7 +86,7 @@
 <p class='text-desaturated-blue text-11'>
     <strong class='text-desaturated-blue'><?php echo $customer['customer_first_name']. ' ' . $customer['customer_middle_name']. ' ' . $customer['customer_last_name'];?></strong> 
     wants to take products worth Tshs.
-    <strong class='text-desaturated-blue'><?php echo number_format($product['product_amount']); ?></strong> 
+    <strong class='text-desaturated-blue'><?php echo number_format($amount); ?></strong> 
     and will pay in <strong class='text-desaturated-blue'><?php echo number_format($payment['schedule_number']); ?></strong> Installments every <strong class='text-desaturated-blue'><?php echo number_format($payment['payment_days']); ?></strong> days amount of Tshs. <strong class='text-desaturated-blue'><?php echo number_format($payment['payment_amount']); ?></strong> starting <?php echo $new_date ?></p>
 
 
