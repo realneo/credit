@@ -7,11 +7,16 @@
     $Customers = new Customers($db);
 
     $order_id = $_REQUEST['id'];
+
+    $orders = $Orders->get_order_by_id($order_id);
+
+    
+    $timestamp = strtotime($orders['order_date']); 
+    $new_date = date('D - jS F, Y', $timestamp);
 ?>
 <h2 class='text-desaturated-blue text-center'>Home Shopping Center</h2>
-<h3 class='text-desaturated-blue'>Order Number: <?php echo number_format($order_id); ?> <span class='pull-right text-desaturated-blue'>2nd July 2014</span></h3>
+<h3 class='text-desaturated-blue'>Order Number: <?php echo number_format($order_id); ?> <span class='pull-right text-desaturated-blue'><?php echo $new_date; ?></span></h3>
 <?php
-    $orders = $Orders->get_order_by_id($order_id);
     $customer = $Customers->get_customer_by_id($orders['order_customer_id']);
     $products = $Orders->get_products_by_id($order_id);
     
