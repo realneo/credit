@@ -187,6 +187,7 @@ table-small tr{
     height:80%;
     left:0px;
     top:15.3%;
+    overflow: scroll;
 }
 
 #home_icons{
