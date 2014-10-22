@@ -13,7 +13,7 @@
     include_once($file_path."lib/classes/Main.php");
     include_once($file_path."lib/classes/Database.php");
     include_once($file_path."lib/classes/Session.php");
-    include_once($file_path."lib/classes/Sms.php");
+    include_once($file_path."lib/classes/SMS.php");
     
     
     
