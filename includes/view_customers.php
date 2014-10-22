@@ -10,7 +10,7 @@
   <tr>
         <th>No</th>
         <th>Company</th>
-        <td>Loan Balance</td>
+        <td>Credit Balance</td>
         <th>Full Name</th>
         <th>Mobile 1</th>
         <th>Email 1</th>
