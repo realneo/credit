@@ -73,5 +73,12 @@
             return $this->db->single();
         }
         
+        public function get_no_payment_schedule_customers(){
+            $this->db->query("SELECT * FROM `customers` WHERE `payment_schedule_status` = 'NOT SET'");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
     }
 ?>
