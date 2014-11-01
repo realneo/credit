@@ -22,7 +22,7 @@
                <div class='col-header nav_header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-list-alt fa-1x padding-left-10 text-desaturated-blue"></i> Orders </p></div>
                 <nav>
                     <ul>
-                        <li id='view_order_btn'><a href='#'>View All Order</a></li>
+                        <li id='view_orders_btn'><a href='#'>View All Order</a></li>
                         <li id='new_order_form_btn'><a href='#'>New Order</a></li>
                         <li id='pending_orders_btn'><a href='#'>Pending Orders</a></li>
                         <li id='approved_orders_btn'><a href='#'>Approved Orders</a></li>
