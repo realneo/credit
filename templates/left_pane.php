@@ -5,7 +5,7 @@
                <div class='col-header nav_header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-bell fa-1x padding-left-10 text-desaturated-blue"></i> Follow Up </p></div>
                 <nav>
                     <ul>
-                        <li id='#'><a href='#'>Enter Payment</a></li>
+                        <li id='enter_payment_btn'><a href='#'>Enter Payment</a></li>
                         <li id='#'><a href='#'>View Payments</a></li>
                         <li id='#'><a href='#'>Over Due Payments</a></li>
                         <li id='#'><a href='#'>Notifications</a></li>
@@ -16,11 +16,13 @@
                     <ul>
                         <li id='add_customer_btn'><a href='#'>Add Customer</a></li>
                         <li id='view_customers_btn'><a href='#'>View Customers</a></li>
+                        <li id='add_payment_schedule_btn'><a href='#'>Add Payment Schedule</a></li>
                     </ul>
                </nav>
                <div class='col-header nav_header'><p class='text-desaturated-blue padding-10'> <i class="fa fa-list-alt fa-1x padding-left-10 text-desaturated-blue"></i> Orders </p></div>
                 <nav>
                     <ul>
+                        <li id='view_order_btn'><a href='#'>View All Order</a></li>
                         <li id='new_order_form_btn'><a href='#'>New Order</a></li>
                         <li id='pending_orders_btn'><a href='#'>Pending Orders</a></li>
                         <li id='approved_orders_btn'><a href='#'>Approved Orders</a></li>
