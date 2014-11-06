@@ -80,10 +80,31 @@
             return $this->db->resultset();
         }
         
+        public function get_customers_with_balance(){
+            $this->db->query("SELECT * FROM `customers` WHERE `customer_balance` > 0");
+            $this->db->execute();
+            
+            return $this->db->resultset();
+        }
+        
         public function update_payment_schedule_status($customer_id, $status){
             $this->db->query("UPDATE `customers` SET `payment_schedule_status` = :status WHERE `id` = :customer_id");
             $this->db->bind(':customer_id', $customer_id);
             $this->db->bind(':status', $status);
+            
+            $this->db->execute();
+            
+            if($this->db->rowCount() > 0){
+                return true;   
+            }else{
+                return false;    
+            }
+        }
+        
+        public function update_balance($customer_id, $amount){
+            $this->db->query("UPDATE `customers` SET `customer_balance` = :amount WHERE `id` = :customer_id");
+            $this->db->bind(':customer_id', $customer_id);
+            $this->db->bind(':amount', $amount);
             
             $this->db->execute();
             
@@ -105,6 +126,21 @@
             }else{
                 return false;    
             }
+        }
+        
+        public function check_customer_balance($customer_id){
+            // Get the Balance from the customer table
+                $this->db->query("SELECT `customer_balance` FROM `customers` WHERE `id` = :customer_id");
+                
+                $this->db->bind(':customer_id', $customer_id);
+                
+                $this->db->execute();
+                
+                if($this->db->rowCount() > 0){
+                    return $this->db->single();
+                }else{
+                    return false;    
+                }   
         }
         
     }

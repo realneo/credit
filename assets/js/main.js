@@ -680,4 +680,69 @@ $(function() {
         e.preventDefault();
     });
 
+    /****************************************************************
+        ADD PAYMENT 
+    *****************************************************************/
+    
+    $('#enter_payment_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/new_payment_form.php');
+    });
+    
+    // Payment Schedule Process
+    $(document).on("click", "#enter_payment_submit", function(e) {
+        $('.loading').fadeIn();
+        $("input, button").prop('disabled', true);
+
+        // Check Form
+
+        if($('#customer_id').val() == ''){
+            alert_msg('warning', 'Select a Customer');
+            $('#customer_id').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if($('#paid_date').val() == 0){
+            alert_msg('warning', 'Select the Date');
+            $('#paid_date').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else if($('#amount').val() == 0){
+            alert_msg('warning', 'Enter the Amount Paid');
+            $('#payment_days').addClass('error-border');
+            $("input, button").prop('disabled', false);
+            $('.loading').fadeOut();
+        }else{
+
+            //
+            var customer_id = $('#customer_id').val();
+            var paid_date = $('#paid_date').val();
+            var amount = $('#amount').val();
+
+            // Inserting in the loan_orders
+            var post_data = {
+                customer_id : customer_id,
+                paid_date : paid_date,
+                amount : amount
+            }
+
+            $.post('process/enter_payment_process.php', post_data, function(d){
+                if(d == 'true'){
+                    $("input, button").prop('disabled', false);
+                    alert_msg('success', 'New Payment successfully added');
+                    load_page('#inner-content', 'includes/new_payment_form.php');
+                    $('.loading').fadeOut();
+                }else{
+                    alert_msg('danger', 'There was an Internal Problem, Please contact the Administration');
+                    $("input, button").prop('disabled', false);
+                    $('.loading').fadeOut();
+                }
+            });
+
+        }
+        e.preventDefault();
+    });
+
+    
+    
 });
