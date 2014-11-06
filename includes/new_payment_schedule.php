@@ -6,7 +6,7 @@
 
     $customers = $Customers->get_no_payment_schedule_customers();
 ?>
-<form id='new_payment_schedule_form' name='new_order_payment_form' action='process/new_payment_schedule_process.php' method="post">   
+<form id='new_payment_schedule_form' name='new_payment_schedule_form' action='process/schedule_order_process.php' method="post">   
     
     <select name='customer_id' id='customer_id' class='input'>
         <option value=''>Select a Customer</option>
@@ -28,6 +28,6 @@
     <p></p>
     <div class='divider'></div>
     <p></p>
-    <button class='input' id='new_payment_schedule_submit' type='submit'>Add Payment Schedule</button>
+    <button class='input' id='payment_schedule_submit' type='submit'>Add Payment Schedule</button>
 
 </form>

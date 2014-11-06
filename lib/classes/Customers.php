@@ -80,5 +80,32 @@
             return $this->db->resultset();
         }
         
+        public function update_payment_schedule_status($customer_id, $status){
+            $this->db->query("UPDATE `customers` SET `payment_schedule_status` = :status WHERE `id` = :customer_id");
+            $this->db->bind(':customer_id', $customer_id);
+            $this->db->bind(':status', $status);
+            
+            $this->db->execute();
+            
+            if($this->db->rowCount() > 0){
+                return true;   
+            }else{
+                return false;    
+            }
+        }
+        
+        public function check_payment_schedule_status_by_id($customer_id){
+            $this->db->query("SELECT * FROM `customers` WHERE `payment_schedule_status` = 'SET' AND `id` = :customer_id");
+            $this->db->bind(':customer_id', $customer_id);
+            
+            $this->db->execute();
+            
+            if($this->db->rowCount() > 0){
+                return true;   
+            }else{
+                return false;    
+            }
+        }
+        
     }
 ?>
