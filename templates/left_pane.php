@@ -1,4 +1,4 @@
-        
+
     <div class='container'>
         <div class='col-24 no-print'>
            <div class='container left_pane'>
@@ -6,7 +6,7 @@
                 <nav>
                     <ul>
                         <li id='enter_payment_btn'><a href='#'>Enter Payment</a></li>
-                        <li id='#'><a href='#'>View Payments</a></li>
+                        <li id='view_all_payments_btn'><a href='#'>View Payments</a></li>
                         <li id='#'><a href='#'>Over Due Payments</a></li>
                         <li id='#'><a href='#'>Notifications</a></li>
                     </ul>

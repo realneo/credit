@@ -681,15 +681,15 @@ $(function() {
     });
 
     /****************************************************************
-        ADD PAYMENT 
+        ADD PAYMENT
     *****************************************************************/
-    
+
     $('#enter_payment_btn').click(function(){
         $("li[id$='btn']").removeClass('nav-hover');
         $(this).addClass('nav-hover');
         load_page('#inner-content', 'includes/new_payment_form.php');
     });
-    
+
     // Payment Schedule Process
     $(document).on("click", "#enter_payment_submit", function(e) {
         $('.loading').fadeIn();
@@ -743,6 +743,14 @@ $(function() {
         e.preventDefault();
     });
 
-    
-    
+
+    /****************************************************************
+        VIEW PAYMENTS
+    *****************************************************************/
+    $('#view_all_payments_btn').click(function(){
+        $("li[id$='btn']").removeClass('nav-hover');
+        $(this).addClass('nav-hover');
+        load_page('#inner-content', 'includes/view_all_payments.php');
+    });
+
 });
