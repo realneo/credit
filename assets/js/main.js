@@ -257,7 +257,27 @@ $(function() {
             alert_msg('warning', 'Select Customer before proceeding');
             $("input, button").prop('disabled', false);
             $('.loading').fadeOut();
-        }else{
+        }else if($('#product_name').val() == 0){
+             alert_msg('warning', 'Enter Product Name');
+             $('#product_name').addClass('error-border');
+             $("input, button").prop('disabled', false);
+             $('.loading').fadeOut();
+         }else if($('#product_code').val() == 0){
+             alert_msg('warning', 'Enter the Product Code');
+             $('#product_code').addClass('error-border');
+             $("input, button").prop('disabled', false);
+             $('.loading').fadeOut();
+         }else if($('#product_price').val() == 0){
+             alert_msg('warning', 'Enter the Product Price');
+             $('#product_price').addClass('error-border');
+             $("input, button").prop('disabled', false);
+             $('.loading').fadeOut();
+         }else if($('#product_quantity').val() == 0){
+             alert_msg('warning', 'Enter the Product Quantity');
+             $('#product_quantity').addClass('error-border');
+             $("input, button").prop('disabled', false);
+             $('.loading').fadeOut();
+         }else{
 
             var customer_id = $('#customer_id').val();
 
@@ -285,7 +305,8 @@ $(function() {
                         if(data == 'true'){
                             $("input, button").prop('disabled', false);
                             alert_msg('success', 'New Order successfully added');
-                            products.length = 0
+                            products.length = 0;
+                            total_amount = 0;
                             load_page('#inner-content', 'includes/new_order_form.php');
                             $('.loading').fadeOut();
                         }else{
