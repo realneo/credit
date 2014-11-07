@@ -18,10 +18,14 @@
     </tr>
    <?php
         $count = 1;
+        $total_balance = 0;
+        $total_paid_amount = 0;
         foreach($payments as $payment){
             $customer = $Customers->get_customer_by_id($payment['customer_id']);
             $timestamp = strtotime($payment['date']);
             $new_date = date('D - jS F, Y', $timestamp);
+            $total_balance += $customer['customer_balance'];
+            $total_paid_amount += $payment['amount'];
     ?>
     <tr>
         <td><?php echo $count++ ?></td>
@@ -31,4 +35,11 @@
         <td><?php echo $customer['customer_balance']; ?></td>
     </tr>
     <?php } ?>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><?php echo number_format($total_paid_amount); ?></th>
+        <th><?php echo number_format($total_balance); ?></th>
+    </tr>
 </table>
