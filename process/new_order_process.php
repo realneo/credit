@@ -16,6 +16,7 @@
     $customer_name = $customer['customer_first_name'] . ' ' .$customer['customer_last_name'];
     $total_amount_format = number_format($total_amount);
 
+
     $new_order = $Orders->add_order($customer_id, $total_amount);
     $SMS->send($customer_mobile, $customer_name . ', your credit order of Tshs '.$total_amount_format.' is being processed please wait for approval. For more details, call 0712 700 000');
 

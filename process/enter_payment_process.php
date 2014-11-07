@@ -5,7 +5,7 @@
 
     $Payments = new Payments($db);
     $Customers = new Customers($db);
-    
+
     // Getting Data from Form
     $customer_id = $_POST['customer_id'];
     $paid_date = $_POST['paid_date'];
@@ -17,9 +17,9 @@
         $previous_balance = $Customers->check_customer_balance($customer_id)['customer_balance'];
         $balance = $previous_balance - $amount;
         $Customers->update_balance($customer_id, $balance);
-        
+
         echo 'true';
     }else{
-        echo 'false';   
+        echo 'false';
     }
 ?>
