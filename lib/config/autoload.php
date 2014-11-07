@@ -6,7 +6,7 @@
     define(ROOT_DIR, $_SERVER['DOCUMENT_ROOT'] );
     
     // Set File Path for the Files
-    $file_path = ROOT_DIR . DIRECTORY_SEPARATOR . "loans" . DIRECTORY_SEPARATOR;
+    $file_path = ROOT_DIR . DIRECTORY_SEPARATOR . "credit" . DIRECTORY_SEPARATOR;
     
     
     include_once($file_path."lib/config/config.php");
